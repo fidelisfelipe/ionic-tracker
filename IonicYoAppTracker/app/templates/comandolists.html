@@ -1,0 +1,9 @@
+<ion-view view-title="Comandolists">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="comandolist in comandolists" href="#/app/comandolists/{{comandolist.id}}">
+        {{comandolist.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

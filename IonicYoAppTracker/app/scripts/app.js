@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+	
+	.state('app.comandolists', {
+      url: '/comandolists',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/comandolists.html',
+          controller: 'ComandolistsCtrl'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/playlists/:playlistId',
@@ -67,7 +77,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
+  })
+  
+  .state('app.comando', {
+    url: '/comandolists/:comandolistId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/comandolist.html',
+        controller: 'ComandolistCtrl'
+      }
+    }
   });
+  
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/comandolists');
 });

@@ -69,12 +69,10 @@
     "org.apache.cordova.dialogs",
     "org.apache.cordova.vibration",
     "org.apache.cordova.contacts",
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.inappbrowser",
+    "https://github.com/katzer/cordova-plugin-local-notifications.git"
   ],
   "cordovaPlatforms": [
-    {
-      "platform": "android",
-      "locator": "browser"
-    }
+    "android"
   ]
 }

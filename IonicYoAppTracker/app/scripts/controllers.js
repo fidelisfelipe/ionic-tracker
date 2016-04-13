@@ -53,4 +53,14 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('ComandolistsCtrl', function($scope) {
+  $scope.comandolists = [
+    { title: 'Comando A', id: 1 },
+    { title: 'Comando B', id: 2 }
+  ];
+})
+
+.controller('ComandolistCtrl', function($scope, $stateParams) {
 });
