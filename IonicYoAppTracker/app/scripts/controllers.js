@@ -52,15 +52,103 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PlaylistCtrl', function($scope) {
 })
 
-.controller('ComandolistsCtrl', function($scope) {
+.controller('ComandolistsCtrl', function($scope, $ionicPopup, $ionicLoading, $timeout) {
   $scope.comandolists = [
-    { title: 'Comando A', id: 1 },
-    { title: 'Comando B', id: 2 }
+    { title: 'Attr Password', sended: false, checked: true, id: 1 },
+	{ title: 'Num Master', sended: false, checked: true, id: 2 },
+    { title: 'Event ACC', sended: false, checked: true, id: 3 },
+	{ title: 'Event Move', sended: false, checked: false, id: 4 },
+	{ title: 'Event SOS', sended: false, checked: true, id: 5 },
+	{ title: 'Event Low Batery', sended: false, checked: true, id: 6 },
+	{ title: 'Event Low Fuel', sended: false, checked: true, id: 7 }
   ];
-})
-
-.controller('ComandolistCtrl', function($scope, $stateParams) {
+  
+	$scope.showConfirmSave = function() {
+	   var confirmPopup = $ionicPopup.confirm({
+		 title: 'Question',
+		 template: 'Save the commands selected in the list?',
+		 scope: $scope,
+		 buttons: [
+			{ text: 'No' },
+			{ text: '<b>Yes</b>',
+			  type: 'button-positive',
+			  onTap: function(res){
+				  console.log('Saved commands successfully');
+				  
+					var confirmSaved = $ionicPopup.alert({
+								  title: 'Success',
+								  template: 'Saved commands successfully',
+								   buttons: [
+										{ text: '<b>OK</b>',
+										  type: 'button-positive'
+										}
+								   ]
+					});
+							  
+					confirmSaved.then(function(res) {
+						if(res){
+							e.preventDefault();
+						}else{
+							console.log('D\'not Saveded commands');
+						}
+					});
+				  
+			  }
+			}
+		]
+	   });
+	 };
+	 
+	 $scope.showConfirmSend = function() {
+	   var confirmPopup = $ionicPopup.confirm({
+		 title: 'Question',
+		 template: 'Send the commands now?',
+		 scope: $scope,
+		 buttons: [
+			{ text: 'No' },
+			{ text: '<b>Yes</b>',
+			  type: 'button-positive',
+			  onTap: function(res){
+				  console.log('Saved commands successfully');
+				  
+				  var timeoutVal = $scope.comandolists.length+'000';
+				  
+				  $ionicLoading.show({ templateUrl: 'templates/sending-comandolist.html', scope: $scope});
+				  
+				  $timeout(function() {
+					  //close the popup after comandolists.length seconds for some reason
+					  $ionicLoading.hide(1000);
+					  
+					  var confirmSend = $ionicPopup.alert({
+								  title: 'Success',
+								  template: 'Sended commands successfully!',
+								  buttons: [
+										{ text: '<b>OK</b>',
+										  type: 'button-positive'
+										}
+								   ]
+				      });
+					  
+					  confirmSend.then(function(res) {
+						if(res){
+							
+							e.preventDefault();
+						}else{
+							console.log('D\'not Sended commands');
+						}
+					  });
+					  
+				  }, timeoutVal);
+				  
+			  }
+			}
+		]
+	   });
+	 };
 });
+
+
+

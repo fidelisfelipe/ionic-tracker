@@ -1,9 +1,18 @@
-<ion-view view-title="Comandolists">
+<ion-view view-title="Command Config">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="comandolist in comandolists" href="#/app/comandolists/{{comandolist.id}}">
-        {{comandolist.title}}
-      </ion-item>
-    </ion-list>
+	<a class="item item-list" href="#">
+    Total
+    <span class="badge badge-balanced">{{comandolists.length}}</span>
+    </a>
+    <div class="list">
+      <ion-checkbox ng-repeat="comando in comandolists" ng-model="comando.checked" href="#" > {{comando.title}} </ion-checkbox><!--#/app/comando/{{comandolist.id}}-->  
+    </div>
+	
+	<button class="button button-block button-positive" ng-click="showConfirmSave()">
+	  Save
+	</button>
+	<button class="button button-block button-positive" ng-click="showConfirmSend()">
+	  Send
+	</button>
   </ion-content>
 </ion-view>
