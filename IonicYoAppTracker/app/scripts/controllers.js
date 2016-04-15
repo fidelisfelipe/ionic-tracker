@@ -67,6 +67,11 @@ angular.module('starter.controllers', [])
   ];
   
 	$scope.showConfirmSave = function() {
+		
+					angular.forEach($scope.comandolists, function(value, key){
+							$scope.comandolists[key].sended = false;
+				    });
+		
 	   var confirmPopup = $ionicPopup.confirm({
 		 title: 'Question',
 		 template: 'Save the commands selected in the list?',
@@ -112,14 +117,19 @@ angular.module('starter.controllers', [])
 			{ text: '<b>Yes</b>',
 			  type: 'button-positive',
 			  onTap: function(res){
-				  console.log('Saved commands successfully');
+				  console.log('Send commands successfully');
 				  
 				  var timeoutVal = $scope.comandolists.length+'000';
 				  
 				  $ionicLoading.show({ templateUrl: 'templates/sending-comandolist.html', scope: $scope});
-				  
+
 				  $timeout(function() {
+				    angular.forEach($scope.comandolists, function(value, key){
+						if(value.checked)
+							$scope.comandolists[key].sended = true;
+				    });
 					  //close the popup after comandolists.length seconds for some reason
+				  
 					  $ionicLoading.hide(1000);
 					  
 					  var confirmSend = $ionicPopup.alert({

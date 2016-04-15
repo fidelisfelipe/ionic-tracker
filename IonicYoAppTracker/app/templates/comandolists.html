@@ -5,7 +5,7 @@
     <span class="badge badge-balanced">{{comandolists.length}}</span>
     </a>
     <div class="list">
-      <ion-checkbox ng-repeat="comando in comandolists" ng-model="comando.checked" href="#" > {{comando.title}} </ion-checkbox><!--#/app/comando/{{comandolist.id}}-->  
+      <ion-checkbox ng-repeat="comando in comandolists" ng-model="comando.checked" href="#" > {{comando.title}} - <label>{{comando.sended ? 'OK' : 'Not Send'}}</label></ion-checkbox><!--#/app/comando/{{comandolist.id}}-->  
     </div>
 	
 	<button class="button button-block button-positive" ng-click="showConfirmSave()">
