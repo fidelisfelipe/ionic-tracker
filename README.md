@@ -21,7 +21,7 @@ senha: 6 digitos numéricos
 
 ------------
 
-Mapping Features TK103B
+Mapping Features TK103B > http://bomsom.com/manual_2015.pdf
 
 ## Configurações
 
