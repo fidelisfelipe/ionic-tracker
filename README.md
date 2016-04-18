@@ -41,7 +41,7 @@ Mapping Features TK103B > http://bomsom.com/manual_2015.pdf
 > noadmin+senha+_+telefone
 
 *Autorizar numero master
-> call numeber of module track 10x
+> call number of module track 10x
 < add master ok
 
 *Intervalo de Rastreamento - tempo e quantidade
@@ -113,7 +113,7 @@ Mapping Features TK103B > http://bomsom.com/manual_2015.pdf
 > check+senha
 
 *Set Time Zone
-time+_+zone+senha+_+UTC (ex: UTC brasilia é -3)
+> time+_+zone+senha+_+UTC (ex: UTC brasilia é -3)
 
 *Reset default
 > reset+senha
@@ -125,7 +125,7 @@ time+_+zone+senha+_+UTC (ex: UTC brasilia é -3)
 ## Acionadores
 
 *Posição SMS
-> call numeber of module track
+> call number of module track
 < posicion sms
 
 *Monitorar Audio

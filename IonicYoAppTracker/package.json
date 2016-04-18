@@ -70,7 +70,8 @@
     "org.apache.cordova.vibration",
     "org.apache.cordova.contacts",
     "org.apache.cordova.inappbrowser",
-    "https://github.com/katzer/cordova-plugin-local-notifications.git"
+    "https://github.com/katzer/cordova-plugin-local-notifications.git",
+    "cordova-plugin-sms"
   ],
   "cordovaPlatforms": [
     "android"
