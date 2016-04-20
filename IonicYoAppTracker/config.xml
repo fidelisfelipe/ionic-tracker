@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.example.IonicYoAppTracker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.example.IonicYoAppTracker" version="0.0.1" 
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:cdv="http://cordova.apache.org/ns/1.0"
+xmlns:gap = "http://phonegap.com/ns/1.0"
+>
   <name>IonicYoAppTracker</name>
   <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -39,6 +43,8 @@
   <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
   </feature>
+  <!-- Plugins -->
+  <gap:plugin name="cordova-plugin-sms" source="npm" />
   
   <cdv:plugin name="de.appplant.cordova.plugin.local-notification" />
   <cdv:plugin name="org.apache.cordova.battery-status" />

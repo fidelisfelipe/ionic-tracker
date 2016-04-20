@@ -52,25 +52,152 @@ angular.module('starter.controllers', [])
   ];
 })
 
+
+.controller('LocalizarCtrl', function($scope, $ionicLoading) {
+	
+})
+
+.controller('ParamVeiculolistsCtrl',['$ionicPlatform', function($scope, $cordovaSms, $ionicPlatform) {
+	$scope.paramveiculolists = [
+		{ placa: 'JKH9580',  modelo:'I/GM Classic Life', ano: '2006/2007' , cor:'Prata', renavan:'00893427349', chassi: '8AGSA19907R102453', foto:'corsa.jpg', id: 1 }
+	]
+	$scope.sms = [{ number:'556186075892', message:'Teste SMS' }]
+    console.log('sms ');
+	$ionicPlatform.ready(function (){
+		  console.log('sms init');
+		  
+		  var options = {
+			  replaceLineBreaks: false, // true to replace \n by a new line, false by default
+			  android: {
+				intent: 'INTENT' // send SMS with the native android SMS messaging
+				  //intent: '' // send SMS without open any other app
+				  //intent: 'INTENT' // send SMS inside a default SMS app
+			  }
+			};
+		  
+		  $scope.sendSMS = function() {
+		  console.log('sms send click');
+		  $cordovaSms
+			.send($scope.sms[0].number, $scope.sms[0].message, options)
+			.then(function() {
+			  alert('Success');
+			  // Success! SMS was sent
+			   console.log('Success');
+			}, function(error) {
+			  alert('Error');
+			  // An error occurred
+			  console.log('Error');
+			});
+		  }
+		  
+	});
+	
+    
+ 
+    
+	
+}])
+
+.controller('ParamModuloVeiculolistsCtrl', function($scope) {
+	$scope.parammodulolists = [{modelo: 'tk103B', imei: '85697855', telefone: '556186000012', operadora: 'Claro'}]
+})
+
+.controller('PrefUsuariolistsCtrl', function($scope) {
+})
+
 .controller('PlaylistCtrl', function($scope) {
 })
 
+.controller('ComandoVeiculolistsCtrl', function($scope, $ionicPopup, $ionicLoading, $timeout) {
+	var i = 0;
+	
+	$scope.comandoveiculolists = [
+	{ title: 'Sirene silenciosa/Ativar',  comando:'silent+senha', id: i++ },
+	{ title: 'Sirene silenciosa/Inativar',  comando:'disarm+senha', id: i++ },
+	{ title: 'Posição SMS/Visualizar',  comando:'call number of module track', id: i++ },
+	{ title: 'Áudio/Ativar',  comando:'monitor+senha', id: i++ },
+	{ title: 'Áudio/Inativar',  comando:'tracker+senha', id: i++ },
+	{ title: 'Corta Corrente/Ativar ',  comando:'stop+senha', id: i++ },
+	{ title: 'Corta Corrente/Inativar',  comando:'resume+senha', id: i++ },
+	{ title: 'Alarme/Ativar',  comando:'arm+senha', id: i++},
+	{ title: 'Alarme/Inativar',  comando:'disarm+senha', id: i++},
+	{ title: 'Pânico/Ativar',  comando:'press button panic', id: i++},
+	{ title: 'Pânico/Desativar',  comando:'help+_+me+_+ok+senha', id: i++}
+	];
+	
+	$scope.checkAllComandoList = function(){
+		angular.forEach($scope.comandoveiculolists, function(value, key){
+			//toogle list command			
+			if($scope.comandoveiculolists[key].checked){
+			   $scope.comandoveiculolists[key].checked = !$scope.comandoveiculolists[key].checked;
+			}else{
+				$scope.comandoveiculolists[key].checked = true;
+			}
+		});
+	};
+	
+
+	
+})
+
 .controller('ComandolistsCtrl', function($scope, $ionicPopup, $ionicLoading, $timeout) {
+	var i = 0;
   $scope.comandolists = [
-    { title: 'Attr Password', sended: false, checked: true, id: 1 },
-	{ title: 'Num Master', sended: false, checked: true, id: 2 },
-    { title: 'Event ACC', sended: false, checked: true, id: 3 },
-	{ title: 'Event Move', sended: false, checked: false, id: 4 },
-	{ title: 'Event SOS', sended: false, checked: true, id: 5 },
-	{ title: 'Event Low Batery', sended: false, checked: true, id: 6 },
-	{ title: 'Event Low Fuel', sended: false, checked: true, id: 7 }
+    { title: 'Senha/Adicionar', comando:'begin+senha', id: i++ },
+	{ title: 'Senha/Alterar', comando:'password+senhaatual+_+novasenha', id: i++ },
+    { title: 'Número Telefone/Adicionar', comando:'admin+senha+_+telefone', id: i++ },
+	{ title: 'Número Telefone/Remover', comando:'noadmin+senha+_+telefone', id: i++ },
+	{ title: 'Autorizar Número Telefone', comando:'call number of module track 10x', id: i++ },
+	{ title: 'Intervalo por Tempo x quantidade/Ativar',comando:'fix030s005n',  id: i++ },
+	{ title: 'Intervalo por Tempo/Ativar', comando:'fix030s***n',  id: i++ },
+	{ title: 'Intervalo por Tempo x quantidade/Inativar', comando:'nofix+senha',  id: i++ },
+	{ title: 'Intervalo por Distância/Ativar', comando:'distance+senha+_+0100',  id: i++ },
+	{ title: 'Intervalo por Angulo/Ativar', comando:'angle+senha+_+045', id: i++ },
+	{ title: 'Bateria Baixa/Ativar', comando:'lowbattery+senha+_+on', id: i++ },
+	{ title: 'Bateria Baixa/Inativar', comando:'lowbattery+senha+_+off',  id: i++ },
+	{ title: 'GPS/Ativar',  comando:'nosuppress+senha', id: i++ },
+	{ title: 'GPS/Inativar',  comando:'suppress+senha', id: i++ },
+	{ title: 'Bateria Veículo Desconectada/Ativar',  comando:'extpower+senha+_+on', id: i++ },
+	{ title: 'Bateria Veículo Desconectada/Inativar',  comando:'extpower+senha+_+off', id: i++ },
+	{ title: 'GPS Inoperante/Ativar',  comando:'gpssignal+senha+_+on', id: i++ },
+	{ title: 'GPS Inoperante/Inativar',  comando:'gpssignal+senha+_+off', id: i++ },
+	{ title: 'Saldo SIM Chip/Visualizar',  comando:'balance+senha+_+telefone+code', id: i++ },
+	{ title: 'Velocidade Máxima/Ativar',  comando:'speed+senha+_+080', id: i++ },
+	{ title: 'Velocidade Máxima/Inativar',  comando:'nospeed+senha', id: i++ },
+	{ title: 'Ignição Ligada - Pós chave/Ativar',  comando:'ACC+senha', id: i++ },
+	{ title: 'Ignição Ligada - Pós chave/Inativar',  comando:'noACC+senha', id: i++ },
+	{ title: 'Número IMEI/Vizualizar',  comando:'imei+senha', id: i++ },
+	{ title: 'Corta Corrente Imediato/Ativar',  comando:'quicksatop+senha', id: i++ },
+	{ title: 'Corta Corrente Imediato/Inativar',  comando:'noquicksatop+senha', id: i++ },
+	{ title: 'APN IP/Ativar',  comando:'adminip+senha+_+ip+_+porta', id: i++ },
+	{ title: 'APN Usuário-Senha/Ativar',  comando:'up+senha+_+usuarioApn+_+senhaApn', id: i++ },
+	{ title: 'Min Tráfego GPRS/Ativar',  comando:'less+gprs+senha+on', id: i++ },
+	{ title: 'Min Tráfego GPRS/Inativar',  comando:'less+gprs+senha+off', id: i++ },
+	{ title: 'Min Consumo Bateria/Ativar',  comando:'sleep+senha+_+on', id: i++ },
+	{ title: 'Min Consumo Bateria/Inativar',  comando:'sleep+senha+_+off', id: i++ },
+	{ title: 'GPRS/Ativar',  comando:'GPRS+senha', id: i++ },
+	{ title: 'SMS/Ativar',  comando:'SMS+senha', id: i++ },
+	{ title: 'Check Status/Visualizar',  comando:'check+senha', id: i++ },
+	{ title: 'Time Zone/Ativar',  comando:'time+_+zone+senha+_+UTC', id: i++ }
+	
   ];
+  
+	$scope.checkAllComandoList = function(){
+		angular.forEach($scope.comandolists, function(value, key){
+			//toogle list command			
+			if($scope.comandolists[key].checked){
+			   $scope.comandolists[key].checked = !$scope.comandolists[key].checked;
+			}else{
+				$scope.comandolists[key].checked = true;
+			}
+		});
+	};
   
 	$scope.showConfirmSave = function() {
 		
-					angular.forEach($scope.comandolists, function(value, key){
-							$scope.comandolists[key].sended = false;
-				    });
+		angular.forEach($scope.comandolists, function(value, key){
+				$scope.comandolists[key].sended = false;
+		});
 		
 	   var confirmPopup = $ionicPopup.confirm({
 		 title: 'Question',

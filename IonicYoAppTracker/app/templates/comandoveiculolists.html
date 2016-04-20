@@ -1,12 +1,11 @@
-<ion-view view-title="Comandos de Config">
+<ion-view view-title="Comandos do Veículo">
   <ion-content>
 	<a class="item item-list" href="#" ng-click="checkAllComandoList()">
     Marcar Todos Comandos
-    <span class="badge badge-balanced">{{comandolists.length}}</span>
+    <span class="badge badge-balanced">{{comandoveiculolists.length}}</span>
     </a>
-	
     <div class="list">
-      <ion-checkbox ng-repeat="comando in comandolists" ng-model="comando.checked" href="#" > {{comando.title}}</ion-checkbox><!--#/app/comando/{{comandolist.id}}-->  
+      <ion-checkbox ng-repeat="comando in comandoveiculolists" ng-model="comando.checked" href="#" > {{comando.title}}</ion-checkbox><!--#/app/comando/{{comandolist.id}}-->  
     </div>
 	
 	<button class="button button-block button-positive" ng-click="showConfirmSave()">

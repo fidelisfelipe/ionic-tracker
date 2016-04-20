@@ -1,0 +1,59 @@
+<ion-view view-title="Parametros do Veículo">
+  <ion-content>
+	<div class="list">
+	  <button class="button button-block button-positive" ng-click="checkSMSPermission()">
+	     Check Permission
+	  </button>
+	  <button class="button button-block button-positive" ng-click="sendSMS()">
+	     Send SMS test
+	  </button>	
+	
+	  <label class="item item-input item-floating-label">
+		<span class="input-label" >Telefone</span>
+		<input id="number" ng-model="sms[0].number" placeholder="Telefone" type="tel" />
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label" >Conteúdo SMS</span>
+	  	<textarea id="message" ng-model="sms[0].message" placeholder="Conteúdo SMS"></textarea>
+	 </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label" >Placa</span>
+		<input type="text" id="placa" placeholder="Placa" ng-model="paramveiculolists[0].placa" > 
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Modelo</span>
+		<input type="text" id="modelo" placeholder="Modelo" ng-model="paramveiculolists[0].modelo">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Ano Fabricação/Modelo</span>
+		<input type="text" id="ano" placeholder="Ano" ng-model="paramveiculolists[0].ano">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Cor</span>
+		<input type="text" id="cor" placeholder="Cor" ng-model="paramveiculolists[0].cor">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Renavan</span>
+		<input type="text" id="renavan" placeholder="Renavam" ng-model="paramveiculolists[0].renavan">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Chassi</span>
+		<input type="text" id="chassi" placeholder="Chassi" ng-model="paramveiculolists[0].chassi">
+	  </label>
+	  
+	  <label>
+
+		<span class="input-label">Foto</span>
+		
+		<a class="item item-thumbnail-left" href="#">
+		     <img ng-src="images/{{paramveiculolists[0].foto}}" />
+		</a>
+		<input type="file" id="foto" placeholder="Foto" ng-model="paramveiculolists[0].chassi">	 
+	  </label>
+	</div>
+	
+	<button class="button button-block button-positive" ng-click="showConfirmSave()">
+	  Save
+	</button>
+  </ion-content>
+</ion-view>

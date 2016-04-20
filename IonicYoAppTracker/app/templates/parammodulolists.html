@@ -1,0 +1,39 @@
+<ion-view view-title="Parametros do Módulo">
+  <ion-content>
+	<div class="list">
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Modelo</span>
+		<input type="text" id="modelo" placeholder="Modelo" ng-model="parammodulolists[0].modelo">
+	  </label>
+
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">IMEI</span>
+		<input type="text" id="imei" placeholder="IMEI" ng-model="parammodulolists[0].imei">
+	  </label>
+	  
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Telefone</span>
+		<input type="text" id="telefone" placeholder="Telefone" ng-model="parammodulolists[0].telefone">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Operadora</span>
+		<input type="text" id="operadora" placeholder="Operadora" ng-model="parammodulolists[0].operadora">
+	  </label>
+	  
+	  <label class="item item-input">
+		<span class="input-label">Status</span>
+		
+		<label class="toggle">
+			<input type="checkbox" checked>
+		   <div class="track">
+			 <div class="handle"></div>
+		   </div>
+	    </label>	   
+	  </label>
+    </div>
+	
+	<button class="button button-block button-positive" ng-click="showConfirmSave()">
+	  Save
+	</button>
+  </ion-content>
+</ion-view>

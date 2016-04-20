@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,30 +31,41 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
+	
+	.state('app.localizar', {
+      url: '/localizar',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/localizar.html',
+          controller: 'LocalizarCtrl'
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+	
+	.state('app.paramveiculolists', {
+      url: '/paramveiculolists',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/paramveiculolists.html',
+          controller: 'ParamVeiculolistsCtrl'
+        }
+      }
+    })
+	.state('app.parammodulolists', {
+      url: '/parammodulolists',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/parammodulolists.html',
+          controller: 'ParamModuloVeiculolistsCtrl'
+        }
+      }
+    })
+	.state('app.prefusuariolists', {
+      url: '/prefusuariolists',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/prefusuariolists.html',
+          controller: 'PrefUsuariolistsCtrl'
         }
       }
     })
@@ -65,6 +76,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/comandolists.html',
           controller: 'ComandolistsCtrl'
+        }
+      }
+    })
+	
+	.state('app.comandoveiculolists', {
+      url: '/comandoveiculolists',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/comandoveiculolists.html',
+          controller: 'ComandoVeiculolistsCtrl'
         }
       }
     })
@@ -90,5 +111,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/comandolists');
+  $urlRouterProvider.otherwise('/app/paramveiculolists');
 });
