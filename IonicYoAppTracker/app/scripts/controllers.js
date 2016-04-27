@@ -51,10 +51,32 @@ angular.module('starter.controllers', [])
     { title: 'Cowbell', id: 6 }
   ];
 })
+ /** 
+ * Icons Ionic http://www.tutorialspoint.com/ionic/ionic_icons.htm
+ *	ion-ios-telephone
+ *	ion-home
+ *	ion-wifi
+ *	ion-card
+ **/
+.controller('HomeCtrl', function($scope) {
+	$scope.title = 'Welcome';
+	$scope.features = [
+						{id: 1, title: 'refresh', ico:'ion-refresh'},
+						{id: 2, title: 'localize', ico:'ion-location'},//ion-navigate
+						{id: 3, title: 'status', ico:'ion-flash'},
+						{id: 4, title: 'arm', ico:'ion-locked', ico2:'ion-unlocked'},
+						{id: 5, title: 'lock', ico: 'ion-key'},//ion-minus-circled
+						{id: 6, title: 'audio', ico:'ion-mic-a'},//ion-headphone
+						{id: 7, title: 'mode', ico:'ion-email', ico2: 'ion-stats-bars'},
+						{id: 8, title: 'config', ico:'ion-gear-a'},//ion-wrench, ion-settings, ion-gear-a, ion-gear-b
+						{id: 9, title: 'help', ico:'ion-help-circled'}
+						
+					  ]
+})
 
-
-.controller('LocalizarCtrl', function($scope, $ionicLoading) {
-	
+.controller('FeatureCtrl', function($scope, $stateParams) {
+	//get service for id feature
+	$scope.id = $stateParams.featureId;
 })
 
 .controller('ParamVeiculolistsCtrl',['$ionicPlatform', function($scope, $cordovaSms, $ionicPlatform) {

@@ -1,0 +1,17 @@
+<ion-view view-title="{{title}}">  
+	<ion-pane>
+		<ion-header-bar class="bar-stable">
+			<h1 class="title" ></h1>
+		</ion-header-bar>
+		<ion-content>
+			<div class="list card">
+			  <a ng-repeat="item in features" href="#/app/features/{{item.id}}" class="item item-icon-left">
+				<i class="icon {{item.ico}}"></i>
+				{{item.title}}
+			  </a>
+			</div>
+		</ion-content>
+	</ion-pane>  
+  
+
+</ion-view>

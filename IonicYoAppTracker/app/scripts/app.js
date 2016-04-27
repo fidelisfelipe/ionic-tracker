@@ -31,7 +31,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+
+	.state('app.home', {
+      url: '/home',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/home.html',
+          controller: 'HomeCtrl'
+        }
+      }
+    })
 	
+	.state('app.feature', {
+		url: '/features/:featureId',
+		views: {
+		  'menuContent': {
+			templateUrl: 'templates/feature.html',
+			controller: 'FeatureCtrl'
+		  }
+		}
+	})
+  
 	.state('app.localizar', {
       url: '/localizar',
       views: {
@@ -111,5 +131,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
   });
   
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/paramveiculolists');
+  $urlRouterProvider.otherwise('/app/home');
 });
