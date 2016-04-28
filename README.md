@@ -23,6 +23,13 @@ senha: 6 digitos numéricos
 
 Mapping Features TK103B > http://bomsom.com/manual_2015.pdf
 
+##Led indicadora de Sinais GSM / GPS
+>  indicador LED vermelho acesa: Indica nenhum sinal da rede GSM.
+>  indicador LED vermelho piscando rapidamente (uma vez a cada segundo): Sinal GSM OK e rastreador funciona em modo GSM.
+>  indicador LED vermelho pisca lentamente (uma vez a cada três segundo): Apenas para redes em modo GPRS.
+>  indicador LED Verde Aceso: Ssinal de GPS é normal.
+
+
 ## Configurações
 
 *Inicialização
